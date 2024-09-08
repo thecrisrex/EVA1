@@ -1,14 +1,60 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     android:gravity="center">
 
+    <!-- Mensaje de Bienvenida -->
     <TextView
         android:id="@+id/welcome_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:text="¡Bienvenido!"
+        android:layout_marginBottom="24dp" />
 
-</RelativeLayout>
+    <!-- Campo para Nombre -->
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo para Apellido -->
+    <EditText
+        android:id="@+id/etApellido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apellido"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo para Comuna -->
+    <EditText
+        android:id="@+id/etComuna"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Comuna"
+        android:inputType="text"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo para Observación -->
+    <EditText
+        android:id="@+id/etObservacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Observación"
+        android:inputType="textMultiLine"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Botón para Enviar Datos -->
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Datos" />
+</LinearLayout>
