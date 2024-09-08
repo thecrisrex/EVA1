@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    >
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:ignore="UselessParent">
+
+ <ImageView
+     android:layout_width="160dp"
+     android:layout_height="160dp"
+     android:contentDescription="@string/todo"
+     android:src="@drawable/baseline_account_circle_24"
+     tools:ignore="ImageContrastCheck" />
+
+
+
+ <EditText
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="32dp"
+     android:autofillHints=""
+     android:hint="@string/usuario"
+     android:textColor="@color/white"
+     android:textColorHint="@color/white"
+     android:textSize="20sp"
+     android:background="@drawable/rounded_corner"
+     android:padding="18dp"
+     android:inputType="text"
+     android:id="@+id/username_input"
+     tools:ignore="VisualLintTextFieldSize" />
+
+ <EditText
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="32dp"
+     android:autofillHints=""
+     android:hint="@string/password"
+  android:textColor="@color/white"
+     android:textColorHint="@color/white"
+  android:textSize="20sp"
+     android:background="@drawable/rounded_corner"
+     android:padding="18dp"
+  android:inputType="textPassword"
+  android:id="@+id/password_input"
+     tools:ignore="VisualLintTextFieldSize" />
+
+ <Button
+     android:id="@+id/Login_btn"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_margin="38sp"
+     android:backgroundTint="@color/white"
+     android:padding="18dp"
+     android:text="@string/ingresar"
+     android:textColor="#4E342E"
+     android:textSize="20sp"
+     tools:ignore="VisualLintButtonSize,TextContrastCheck" />
+</LinearLayout>
+</RelativeLayout>
