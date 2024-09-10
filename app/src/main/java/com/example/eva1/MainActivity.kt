@@ -38,12 +38,12 @@ class MainActivity : AppCompatActivity() {
             Log.i("Prueba", "Usuario: $username y Clave es $password")
             Toast.makeText(this, "Hola, $username", Toast.LENGTH_LONG).show()
 
-            // Verificar si los campos no están vacíos
+
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                // Crear Intent para navegar a WelcomeActivity
+
                 val intent = Intent(this, WelcomeActivity::class.java)
-                intent.putExtra("username", username) // Pasar el nombre de usuario
-                startActivity(intent) // Iniciar la nueva actividad
+                intent.putExtra("username", username)
+                startActivity(intent) 
             } else {
                 Toast.makeText(this, "Por favor, ingresa un nombre de usuario y contraseña", Toast.LENGTH_SHORT).show()
             }
