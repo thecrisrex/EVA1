@@ -21,34 +21,33 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
-        // Obtener el nombre de usuario del intent
+
         val username = intent.getStringExtra("username")
 
-        // Mostrar el mensaje de bienvenida
+
         val welcomeMessage: TextView = findViewById(R.id.welcomeMessage)
         welcomeMessage.text = "¡Bienvenido, $username!"
 
-        // Inicializar los campos
+
         nombreInput = findViewById(R.id.etNombre)
         apellidoInput = findViewById(R.id.etApellido)
         comunaInput = findViewById(R.id.etComuna)
         observacionInput = findViewById(R.id.etObservacion)
         enviarBtn = findViewById(R.id.btnEnviar)
 
-        // Configurar el botón para enviar datos
+
         enviarBtn.setOnClickListener {
             val nombre = nombreInput.text.toString()
             val apellido = apellidoInput.text.toString()
             val comuna = comunaInput.text.toString()
             val observacion = observacionInput.text.toString()
 
-            // Validar que todos los campos estén completos
+
             if (nombre.isNotEmpty() && apellido.isNotEmpty() && comuna.isNotEmpty() && observacion.isNotEmpty()) {
-                // Crear el intent para enviar el correo
-                // Crear el intent para enviar el correo
+
                 val emailIntent = Intent(Intent.ACTION_SEND).apply {
-                    type = "message/rfc822" // Este tipo de MIME se usa para correos electrónicos
-                    putExtra(Intent.EXTRA_EMAIL, arrayOf("cristofer.flores29.09@gmail.com")) // Reemplaza con un destinatario si es necesario
+                    type = "message/rfc822"
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("cristofer.flores29.09@gmail.com"))
                     putExtra(Intent.EXTRA_SUBJECT, "Información de usuario: $nombre $apellido")
                     putExtra(Intent.EXTRA_TEXT, """
                         Nombre: $nombre
@@ -65,7 +64,7 @@ class WelcomeActivity : AppCompatActivity() {
                 }
 
             } else {
-                // Mostrar un mensaje de error si hay campos vacíos
+
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
