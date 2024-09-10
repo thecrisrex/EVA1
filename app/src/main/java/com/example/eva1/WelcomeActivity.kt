@@ -45,23 +45,25 @@ class WelcomeActivity : AppCompatActivity() {
             // Validar que todos los campos estén completos
             if (nombre.isNotEmpty() && apellido.isNotEmpty() && comuna.isNotEmpty() && observacion.isNotEmpty()) {
                 // Crear el intent para enviar el correo
-                val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-                    data = Uri.parse("mailto:") // Solo apps de email manejarán esto
+                // Crear el intent para enviar el correo
+                val emailIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "message/rfc822" // Este tipo de MIME se usa para correos electrónicos
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("cristofer.flores29.09@gmail.com")) // Reemplaza con un destinatario si es necesario
                     putExtra(Intent.EXTRA_SUBJECT, "Información de usuario: $nombre $apellido")
                     putExtra(Intent.EXTRA_TEXT, """
                         Nombre: $nombre
                         Apellido: $apellido
                         Comuna: $comuna
                         Observación: $observacion
-                    """.trimIndent())
+                        """.trimIndent())
                 }
 
-                // Verificar si hay una aplicación de correo instalada
-                if (emailIntent.resolveActivity(packageManager) != null) {
-                    startActivity(emailIntent)
-                } else {
+                try {
+                    startActivity(Intent.createChooser(emailIntent, "Enviar correo..."))
+                } catch (ex: android.content.ActivityNotFoundException) {
                     Toast.makeText(this, "No hay ninguna aplicación de correo instalada", Toast.LENGTH_SHORT).show()
                 }
+
             } else {
                 // Mostrar un mensaje de error si hay campos vacíos
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
