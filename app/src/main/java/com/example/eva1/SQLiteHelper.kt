@@ -64,6 +64,6 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
             GROUP BY $COLUMN_USERNAME
         )
     """)
-        db.close()
+
     }
 }
