@@ -30,8 +30,16 @@
             android:exported="true"
             android:label="@string/title_activity_welcome"
             android:theme="@style/Theme.EVA1">
+
         </activity>
 
+        <!-- RegisterUsersActivity solo se lanzará desde el botón de registrar nuevo usuario -->
+        <activity
+            android:name=".RegisterUsersActivity"
+            android:exported="true"
+            android:label="@string/title_activity_register_users"
+            android:theme="@style/Theme.EVA1">
+        </activity>
     </application>
 
 </manifest>
