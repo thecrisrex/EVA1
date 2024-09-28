@@ -1,5 +1,6 @@
 package com.example.eva1
 
+
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -16,6 +17,7 @@ class WelcomeActivity : AppCompatActivity() {
     lateinit var comunaInput: EditText
     lateinit var observacionInput: EditText
     lateinit var enviarBtn: Button
+    lateinit var registrarUsuarioBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +36,7 @@ class WelcomeActivity : AppCompatActivity() {
         comunaInput = findViewById(R.id.etComuna)
         observacionInput = findViewById(R.id.etObservacion)
         enviarBtn = findViewById(R.id.btnEnviar)
+        registrarUsuarioBtn = findViewById(R.id.btnRegistrarUsuario)
 
 
         enviarBtn.setOnClickListener {
@@ -42,9 +45,7 @@ class WelcomeActivity : AppCompatActivity() {
             val comuna = comunaInput.text.toString()
             val observacion = observacionInput.text.toString()
 
-
             if (nombre.isNotEmpty() && apellido.isNotEmpty() && comuna.isNotEmpty() && observacion.isNotEmpty()) {
-
                 val emailIntent = Intent(Intent.ACTION_SEND).apply {
                     type = "message/rfc822"
                     putExtra(Intent.EXTRA_EMAIL, arrayOf("cristofer.flores29.09@gmail.com"))
@@ -54,7 +55,7 @@ class WelcomeActivity : AppCompatActivity() {
                         Apellido: $apellido
                         Comuna: $comuna
                         Observación: $observacion
-                        """.trimIndent())
+                    """.trimIndent())
                 }
 
                 try {
@@ -62,12 +63,17 @@ class WelcomeActivity : AppCompatActivity() {
                 } catch (ex: android.content.ActivityNotFoundException) {
                     Toast.makeText(this, "No hay ninguna aplicación de correo instalada", Toast.LENGTH_SHORT).show()
                 }
-
             } else {
-
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
+
+
+        registrarUsuarioBtn.setOnClickListener {
+            val intent = Intent(this, RegisterUsersActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
+
 
