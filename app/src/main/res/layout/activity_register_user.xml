@@ -3,25 +3,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="16dp">
 
     <EditText
         android:id="@+id/etNewUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre de usuario" />
+        android:hint="Nuevo Nombre de Usuario"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@color/purple_200"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"/>
 
     <EditText
         android:id="@+id/etNewPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:hint="Nueva Contraseña"
+        android:textColor="@android:color/black"
+        android:backgroundTint="@color/purple_200"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar" />
+        android:text="Registrar Usuario"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/purple_500"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnActualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Actualizar Usuario"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/purple_500"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Eliminar Usuario"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/purple_500"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnVerUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver Usuarios Registrados"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/purple_500"
+        android:layout_marginBottom="24dp"/>
+
+    <ListView
+        android:id="@+id/userListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"/>
+
 </LinearLayout>
