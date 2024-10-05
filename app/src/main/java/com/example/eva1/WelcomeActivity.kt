@@ -1,6 +1,5 @@
 package com.example.eva1
 
-
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,27 +16,21 @@ class WelcomeActivity : AppCompatActivity() {
     lateinit var comunaInput: EditText
     lateinit var observacionInput: EditText
     lateinit var enviarBtn: Button
-    lateinit var registrarUsuarioBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
-
-        val username = intent.getStringExtra("username")
-
+        val username = intent.getStringExtra("username") ?: "Invitado"
 
         val welcomeMessage: TextView = findViewById(R.id.welcomeMessage)
         welcomeMessage.text = "¡Bienvenido, $username!"
-
 
         nombreInput = findViewById(R.id.etNombre)
         apellidoInput = findViewById(R.id.etApellido)
         comunaInput = findViewById(R.id.etComuna)
         observacionInput = findViewById(R.id.etObservacion)
         enviarBtn = findViewById(R.id.btnEnviar)
-        registrarUsuarioBtn = findViewById(R.id.btnRegistrarUsuario)
-
 
         enviarBtn.setOnClickListener {
             val nombre = nombreInput.text.toString()
@@ -46,8 +39,9 @@ class WelcomeActivity : AppCompatActivity() {
             val observacion = observacionInput.text.toString()
 
             if (nombre.isNotEmpty() && apellido.isNotEmpty() && comuna.isNotEmpty() && observacion.isNotEmpty()) {
-                val emailIntent = Intent(Intent.ACTION_SEND).apply {
-                    type = "message/rfc822"
+
+                val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:")
                     putExtra(Intent.EXTRA_EMAIL, arrayOf("cristofer.flores29.09@gmail.com"))
                     putExtra(Intent.EXTRA_SUBJECT, "Información de usuario: $nombre $apellido")
                     putExtra(Intent.EXTRA_TEXT, """
@@ -66,12 +60,6 @@ class WelcomeActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             }
-        }
-
-
-        registrarUsuarioBtn.setOnClickListener {
-            val intent = Intent(this, RegisterUsersActivity::class.java)
-            startActivity(intent)
         }
     }
 }
