@@ -6,4 +6,5 @@
     <string name="ingresar">Ingresar</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_register_users">RegisterUsersActivity</string>
+    <string name="title_activity_menu" />
 </resources>
