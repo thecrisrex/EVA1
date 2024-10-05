@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
                 if (userExists) {
 
-                    val intent = Intent(this, WelcomeActivity::class.java)
+                    val intent = Intent(this, MenuActivity::class.java)
                     intent.putExtra("username", username)
                     startActivity(intent)
                 } else {
