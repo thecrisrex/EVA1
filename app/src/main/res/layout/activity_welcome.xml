@@ -6,7 +6,6 @@
     android:padding="16dp"
     android:gravity="center">
 
-    <!-- Mensaje de Bienvenida -->
     <TextView
         android:id="@+id/welcomeMessage"
         android:layout_width="wrap_content"
@@ -15,7 +14,6 @@
         android:text="¡Bienvenido!"
         android:layout_marginBottom="24dp" />
 
-    <!-- Campo para Nombre -->
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
@@ -24,7 +22,6 @@
         android:inputType="textPersonName"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Campo para Apellido -->
     <EditText
         android:id="@+id/etApellido"
         android:layout_width="match_parent"
@@ -33,7 +30,6 @@
         android:inputType="textPersonName"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Campo para Comuna -->
     <EditText
         android:id="@+id/etComuna"
         android:layout_width="match_parent"
@@ -42,7 +38,6 @@
         android:inputType="text"
         android:layout_marginBottom="16dp"/>
 
-    <!-- Campo para Observación -->
     <EditText
         android:id="@+id/etObservacion"
         android:layout_width="match_parent"
@@ -51,18 +46,10 @@
         android:inputType="textMultiLine"
         android:layout_marginBottom="24dp"/>
 
-    <!-- Botón para Enviar Datos -->
     <Button
         android:id="@+id/btnEnviar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enviar Datos"/>
-
-    <Button
-        android:id="@+id/btnRegistrarUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrar Nuevo Usuario"
-        android:layout_marginTop="16dp"/>
 
 </LinearLayout>
