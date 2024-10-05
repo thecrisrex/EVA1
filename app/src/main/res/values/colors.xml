@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+
+
+    <color name="fondo_claro">#F5F5F5</color> <!-- Color de fondo claro -->
+    <color name="boton_azul">#1E88E5</color> <!-- Color azul para botones -->
+    <color name="texto_negro">#212121</color> <!-- Color negro para texto -->
+    <color name="rojo_oscuro">#D32F2F</color> <!-- Color rojo oscuro para alertas -->
 </resources>
