@@ -54,6 +54,37 @@ class SQLiteHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         return exists
     }
 
+    fun updateUser(username: String, newPassword: String): Int {
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_PASSWORD, newPassword)
+        }
+
+
+        return db.update(TABLE_USERS, values, "$COLUMN_USERNAME=?", arrayOf(username))
+    }
+
+    fun deleteUser(username: String): Int {
+        val db = this.writableDatabase
+        return db.delete(TABLE_USERS, "$COLUMN_USERNAME=?", arrayOf(username))
+    }
+
+    fun getAllUsers(): List<String> {
+        val userList = mutableListOf<String>()
+        val db = this.readableDatabase
+        val cursor: Cursor = db.rawQuery("SELECT * FROM $TABLE_USERS", null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val username = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_USERNAME))
+                userList.add(username)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return userList
+    }
+
+
     fun eliminarUsuariosDuplicados() {
         val db = this.writableDatabase
         db.execSQL("""
